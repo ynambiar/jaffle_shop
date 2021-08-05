@@ -1,5 +1,27 @@
 version: 2
 
+sources:
+  - name: raw
+    freshness:
+      warn_after: {count: 12, period: hour}
+      error_after: {count: 24, period: hour}
+    tables:
+      - name: raw_customers
+      - name: raw_orders
+        max_loaded_at: order_date::timestamp
+        loaded_at_field: order_date::timestamp
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: status
+            tests:
+              - accepted_values:
+                  values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+      - name: raw_payments
+
+
 models:
   - name: stg_customers
     columns:
@@ -29,3 +51,18 @@ models:
         tests:
           - accepted_values:
               values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+
+exposures:
+
+  - name: stg_orders
+    type: dashboard
+    maturity: medium
+    url: https://github.com/ynambiar/jaffle_shop
+    description: An exposure of Jaffle Shop orders.
+
+    depends_on:
+      - ref('stg_orders')
+
+    owner:
+      name: Yamini Nambiar
+      email: yamini.nambiar@dbtlabs.com
