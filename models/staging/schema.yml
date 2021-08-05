@@ -18,7 +18,7 @@ sources:
           - name: status
             tests:
               - accepted_values:
-                  values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+                  values: ['placed', 'shipped', 'completed', 'returned']
       - name: raw_payments
 
 
