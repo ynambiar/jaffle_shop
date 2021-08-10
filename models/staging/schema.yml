@@ -19,8 +19,8 @@ sources:
           - name: status
             tests:
               - accepted_values:
-                  values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
-      - name: raw_payments
+                  values: ['placed', 'shipped', 'completed', 'returned']
+      - name: payments
 
 models:
   - name: stg_customers
