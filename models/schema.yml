@@ -80,3 +80,15 @@ models:
         description: Amount of the order (AUD) paid for by gift card
         tests:
           - not_null
+  
+exposures:
+  - name: orders
+    type: dashboard
+    maturity: medium
+    url: https://github.com/ynambiar/jaffle_shop
+    description: An exposure of Jaffle Shop orders.
+    depends_on:
+      - ref('orders')
+    owner:
+      name: Barr Yaron
+      email: barr.yaron@dbtlabs.com
