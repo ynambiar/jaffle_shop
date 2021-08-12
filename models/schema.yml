@@ -110,6 +110,7 @@ exposures:
     url: https://github.com/ynambiar/jaffle_shop
     description: An exposure of Jaffle Shop orders.
     depends_on:
+      - source('orders')
       - ref('orders')
     owner:
       name: Barr Yaron
