@@ -25,10 +25,14 @@ models:
 snapshots:
   jaffle_shop:
     orders_snapshot:
+      +materialized: view
+      +hours_to_expiration: 6
       +unique_key: id
       +strategy: timestamp
       +order_date: order_date
   customers_snapshot:
+      +materialized: view
+      +hours_to_expiration: 6
       +unique_key: id
       +strategy: check
       +check_cols: [id]
