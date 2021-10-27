@@ -21,3 +21,14 @@ models:
       materialized: table
       staging:
         materialized: view
+
+snapshots:
+  jaffle_shop:
+    orders_snapshot:
+      +unique_key: id
+      +strategy: timestamp
+      +order_date: order_date
+  customers_snapshot:
+      +unique_key: id
+      +strategy: check
+      +check_cols: [id]
