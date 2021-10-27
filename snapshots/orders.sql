@@ -1,7 +1,7 @@
 {% snapshot orders_snapshot %}
     {{
         config(
-          target_schema='analytics',
+          target_schema='snapshots',
           unique_key='id',
           strategy='timestamp',
           updated_at='order_date',

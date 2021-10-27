@@ -1,7 +1,7 @@
 {% snapshot customers_snapshot %}
     {{
         config(
-          target_schema='analytics',
+          target_schema='snapshots',
           unique_key='id',
           strategy='check',
           check_cols=['id'],
