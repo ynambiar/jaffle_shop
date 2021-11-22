@@ -26,24 +26,24 @@ metrics:
   - name: new_customers
     label: New Customers
     model: ref('customers')
-    description: "The number of paid customers who are using the product"
+    description: "The number of new paying customers"
 
     type: count
     sql: customer_id # superflous here, but shown as an example
 
-    timestamp: most_recent_order
+    timestamp: first_order
     time_grains: [day, week, month]
 
     dimensions:
-      - number_of_orders
-      - first_name
+      - plan
+      - country
     
     filters:
       - field: total_order_amount
         operator: '>'
         value: '0'
 
-    meta: { "vadim": "test"}           
+    meta: { "barr": "test", "vadim": slackbot.py}           
 
 models:
   - name: customers
