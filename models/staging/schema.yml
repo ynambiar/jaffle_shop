@@ -29,15 +29,3 @@ models:
         tests:
           - accepted_values:
               values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
-
-exposures:
-  - name: stg_orders
-    type: dashboard
-    maturity: medium
-    url: https://github.com/ynambiar/jaffle_shop
-    description: An exposure of Jaffle Shop orders.
-    depends_on:
-      - ref('stg_orders')
-    owner:
-      name: Yamini Nambiar
-      email: yamini.nambiar@dbtlabs.com
